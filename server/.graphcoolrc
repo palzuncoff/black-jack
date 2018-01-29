@@ -1,0 +1,3 @@
+targets:
+  black-jack: shared-eu-west-1/cjd0e4mnk0t1u0110kn32hd4i
+  default: black-jack
