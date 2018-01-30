@@ -1,13 +1,11 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+import Chip from '../components/Chips/Chip';
+import ChipList from '../components/Chips/ChipList';
 
-import { Button, Welcome } from '@storybook/react/demo';
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+const storiesChip = storiesOf('Chip', module);
+storiesChip.add('defaul view', () => (<Chip />));
 
-storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);
+const storiesChipList = storiesOf('ChipList', module);
+storiesChipList.add('defaul view', () => (<ChipList />));
