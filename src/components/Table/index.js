@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import nine_of_diamonds from '../../SVG-cards/9_of_diamonds.svg';
 import CardBack from '../../SVG-cards/Card_back_01.svg';
 import './index.css';
+import Game from '../Game';
 
 class Table extends Component {
     render() {
@@ -18,6 +19,9 @@ class Table extends Component {
                 <div className="flex-container">
                     <div><img src={nine_of_diamonds} alt="" className="card" /></div>
                     <div><img src={nine_of_diamonds} alt="" className="card" /></div>
+                </div>
+                <div>
+                    <Game />
                 </div>
             </div>
         );
