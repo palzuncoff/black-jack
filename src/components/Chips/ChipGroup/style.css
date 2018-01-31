@@ -1,0 +1,60 @@
+.chips-svg {
+    width: 100px;
+}
+
+.chips__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.chips__1 {
+    position: absolute;
+    top: 180px;
+}
+
+.chips__2 {
+    position: absolute;
+    top: 160px;
+}
+
+.chips__3 {
+    position: absolute;
+    top: 140px;
+}
+
+.chips__4 {
+    position: absolute;
+    top: 120px;
+}
+
+.chips__5 {
+    position: absolute;
+    top: 100px;
+}
+
+.chips__6 {
+    position: absolute;
+    top: 80px;
+}
+
+.chips__7 {
+    position: absolute;
+    top: 60px;
+}
+
+.chips__8 {
+    position: absolute;
+    top: 40px;
+}
+
+.chips__9 {
+    position: absolute;
+    top: 20px;
+}
+
+.chips__10 {
+    position: absolute;
+    top: 0;
+}
