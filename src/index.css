@@ -1,3 +1,4 @@
 body {
-  background-color: #005a00;
+  background: url('./img/background.svg') no-repeat center center fixed;
+  background-size: cover;
 }
