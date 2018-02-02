@@ -5,7 +5,7 @@ import { withRouter } from 'react-router'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag';
 import './App.css';
-import Table from './components/Table';
+import Game from './components/Game';
 
 const FACEBOOK_APP_ID = process.env.REACT_APP_FACEBOOK_APP_ID;
 const FACEBOOK_API_VERSION = process.env.REACT_APP_FACEBOOK_API_VERSION;
@@ -85,7 +85,7 @@ class App extends Component {
             Logout
           </span>
                 </div>
-                <h1>Ok</h1>
+                <Game/>
             </div>
         )
     }
