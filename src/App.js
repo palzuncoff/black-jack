@@ -35,7 +35,9 @@ class App extends Component {
     }
 
     _handleFBLogin = () => {
-        FB.login(response => { this._facebookCallback(response) }, { scope: 'public_profile,email' })
+        FB.login(response => {
+            this._facebookCallback(response)
+        }, { scope: 'public_profile,email' })
     }
 
     _facebookCallback = async facebookResponse => {
@@ -43,7 +45,8 @@ class App extends Component {
             const facebookToken = facebookResponse.authResponse.accessToken
             const graphcoolResponse = await this.props.authenticateUserMutation({variables: { facebookToken }})
             const graphcoolToken = graphcoolResponse.data.authenticateUser.token
-            localStorage.setItem('graphcoolToken', graphcoolToken)
+            localStorage.setItem(process.env.REACT_APP_AUTH_TOKEN, graphcoolToken)
+            localStorage.setItem('userId', facebookResponse.authResponse.userID)
             window.location.reload()
         } else {
             console.warn(`User did not authorize the Facebook application.`)
@@ -57,7 +60,7 @@ class App extends Component {
     }
 
     _logout = () => {
-        localStorage.removeItem('graphcoolToken')
+        localStorage.removeItem(process.env.REACT_APP_AUTH_TOKEN)
         window.location.reload()
     }
 

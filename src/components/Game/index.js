@@ -12,7 +12,7 @@ class Game extends Component {
     componentDidMount() {
         // Get username form prompt
         // when page loads
-        const from = window.prompt('username');
+        const from = localStorage.getItem('userId');
         from && this.setState({ from });
         this._subscribeToNewChats();
     }

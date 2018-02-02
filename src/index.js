@@ -16,7 +16,10 @@ import registerServiceWorker from './registerServiceWorker';
 const wsLink = new WebSocketLink({
     uri: process.env.REACT_APP_SUBSCRIPTIONS_API,
     options: {
-        reconnect: true
+        reconnect: true,
+        connectionParams: {
+            authToken: localStorage.getItem(process.env.REACT_APP_AUTH_TOKEN),
+        }
     }
 });
 
@@ -24,7 +27,7 @@ const httpLink = new HttpLink({ uri: process.env.REACT_APP_SIMPLE_API });
 
 const middlewareLink = setContext(() => ({
     headers: {
-        authorization: `Bearer ${localStorage.getItem('graphcoolToken')}` || null,
+        authorization: `Bearer ${localStorage.getItem(process.env.REACT_APP_AUTH_TOKEN)}` || null,
     }
 }));
 
