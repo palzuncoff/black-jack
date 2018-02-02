@@ -1,15 +1,6 @@
 # The following types define the data model of the example service
 # based on which the GraphQL API is generated
 
-type User @model {
-  id: ID! @isUnique
-  name: String
-  dateOfBirth: DateTime
-
-  # Uncomment below - you can declare relations between models like this
-
-  # posts: [Post!]! @relation(name: "UserPosts")
-}
 
 type Chat @model {
   id: ID! @isUnique
@@ -18,28 +9,32 @@ type Chat @model {
   createdAt: DateTime!
 }
 
-# Uncomment the model below as well
+type Count @model  {
+  # Required system field:
+  id: ID! @isUnique # read-only (managed by Graphcool)
 
-# type Post @model {
-#   id: ID! @isUnique
-#   title: String!
-#
-#   # Every relation also required a back-relation (to determine 1:1, 1:n or n:m)
-#   author: User! @relation(name: "UserPosts")
-# }
+  # Optional system fields (remove if not needed):
+  createdAt: DateTime! # read-only (managed by Graphcool)
+  updatedAt: DateTime! # read-only (managed by Graphcool)
+
+  cash: Float @defaultValue(value: 1000.0)
+  author: User! @relation(name: "UsersCount")
+}
 
 
 # added by facebook template: (please uncomment)
-# type User @model {
-#   # Required system field:
-#   id: ID! @isUnique # read-only (managed by Graphcool)
-# 
-#   # Optional system fields (remove if not needed):
-#   createdAt: DateTime! # read-only (managed by Graphcool)
-#   updatedAt: DateTime! # read-only (managed by Graphcool)
-# 
-#   facebookUserId: String @isUnique
-#   email: String # optional, because it's obtained from Facebook API
-# }
-# 
+ type User @model {
+   # Required system field:
+   id: ID! @isUnique # read-only (managed by Graphcool)
+
+   # Optional system fields (remove if not needed):
+   createdAt: DateTime! # read-only (managed by Graphcool)
+   updatedAt: DateTime! # read-only (managed by Graphcool)
+
+   facebookUserId: String @isUnique
+   email: String # optional, because it's obtained from Facebook API
+
+   cash: Count @relation(name: "UsersCount")
+ }
+
 
