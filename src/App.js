@@ -1,7 +1,6 @@
 /*global FB*/
 
 import React, { Component } from 'react';
-import { withRouter } from 'react-router'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag';
 import './App.css';
@@ -129,4 +128,4 @@ const AUTHENTICATE_FACEBOOK_USER = gql`
 export default compose(
     graphql(AUTHENTICATE_FACEBOOK_USER, { name: 'authenticateUserMutation' }),
     graphql(LOGGED_IN_USER, { options: { fetchPolicy: 'network-only'}})
-) (withRouter(App))
+) (App)

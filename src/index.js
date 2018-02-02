@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { WebSocketLink } from 'apollo-link-ws';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import 'tachyons'
+import 'tachyons';
 import { ApolloProvider } from 'react-apollo';
 import { split } from 'apollo-client-preset';
 import { setContext } from 'apollo-link-context';
@@ -47,11 +46,7 @@ const client = new ApolloClient({
 
 ReactDOM.render((
         <ApolloProvider client={client}>
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path='/' component={App} />
-                </Switch>
-            </BrowserRouter>
+            <App/>
         </ApolloProvider>
 
     ),
