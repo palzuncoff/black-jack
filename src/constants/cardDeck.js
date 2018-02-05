@@ -1,7 +1,7 @@
-export const numbers = [ 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => {
+const numbers = [ 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => {
     return { dignity: `${num}`, value: num, altValue: num };
 });
-export const cards = [
+const cards = [
     {
         dignity: 'ace',
         value: 11,
