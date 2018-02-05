@@ -3,6 +3,7 @@ import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import './index.css';
 import Chatbox from '../Chatbox';
+import CARD_DECK from '../../constants/cardDeck';
 
 class Game extends Component {
     state = {
@@ -10,8 +11,6 @@ class Game extends Component {
         content: ''
     };
     componentDidMount() {
-        // Get username form prompt
-        // when page loads
         const from = localStorage.getItem('userId');
         from && this.setState({ from });
         this._subscribeToNewChats();
