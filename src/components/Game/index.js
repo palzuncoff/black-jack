@@ -3,13 +3,13 @@ import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import './index.css';
 import Chatbox from '../Chatbox';
-import CARD_DECK from '../../constants/cardDeck';
 
 class Game extends Component {
     state = {
         from: 'anonymous',
         content: ''
     };
+
     componentDidMount() {
         const from = localStorage.getItem('userId');
         from && this.setState({ from });
@@ -54,6 +54,10 @@ class Game extends Component {
         });
     };
 
+    handleStartGame = async () => {
+        await this.props.newDeck.updateQuery();
+    };
+
     render() {
         const allChats = this.props.allChatsQuery.allChats || [];
         return (
@@ -72,6 +76,9 @@ class Game extends Component {
                         placeholder="Start typing"
                         onKeyPress={this._createChat}
                     />
+                    <button
+                        onClick={this.handleStartGame}
+                    >START GAME</button>
                 </div>
             </div>
         );
@@ -79,28 +86,38 @@ class Game extends Component {
 }
 
 const ALL_CHATS_QUERY = gql`
-  query AllChatsQuery {
-    allChats {
-      id
-      createdAt
-      from
-      content
+    query AllChatsQuery {
+        allChats {
+            id
+            createdAt
+            from
+            content
+        }
     }
-  }
 `;
 
 const CREATE_CHAT_MUTATION = gql`
-      mutation CreateChatMutation($content: String!, $from: String!) {
+    mutation CreateChatMutation($content: String!, $from: String!) {
         createChat(content: $content, from: $from) {
-          id
-          createdAt
-          from
-          content
+            id
+            createdAt
+            from
+            content
         }
-      }
-    `;
+    }
+`;
+
+const NEW_DECK = gql`
+    query NewDeck {
+        newDeck {
+            message
+            status
+        }
+    }
+`;
 
 export default compose(
     graphql(ALL_CHATS_QUERY, { name: 'allChatsQuery' }),
-    graphql(CREATE_CHAT_MUTATION, { name: 'createChatMutation' })
+    graphql(CREATE_CHAT_MUTATION, { name: 'createChatMutation' }),
+    graphql(NEW_DECK, { name: 'newDeck' })
 )(Game);

@@ -118,7 +118,7 @@ const LOGGED_IN_USER = gql`
       id
     }
   }
-`
+`;
 
 const AUTHENTICATE_FACEBOOK_USER = gql`
   mutation AuthenticateUserMutation($facebookToken: String!) {
@@ -126,7 +126,7 @@ const AUTHENTICATE_FACEBOOK_USER = gql`
       token
     }
   }
-`
+`;
 
 export default compose(
     graphql(AUTHENTICATE_FACEBOOK_USER, { name: 'authenticateUserMutation' }),

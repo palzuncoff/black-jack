@@ -21,6 +21,23 @@ type Count @model  {
   author: User! @relation(name: "UsersCount")
 }
 
+type Card @model {
+    id: ID! @isUnique
+    dignity: String!
+    value: Int!
+    altValue: Int!
+    suit: String!
+}
+
+type Table @model {
+    id: ID! @isUnique
+    player: String!
+    dignity: String!
+    value: Int!
+    altValue: Int!
+    suit: String!
+}
+
 
 # added by facebook template: (please uncomment)
  type User @model {

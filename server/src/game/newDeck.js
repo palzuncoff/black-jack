@@ -1,3 +1,6 @@
+const fromEvent = require('graphcool-lib').fromEvent;
+const shaffle = require('lodash.shuffle');
+
 const addDecks = (num, deck) => {
     let result = [];
     for (let i = 0; i < num; i++) {
@@ -47,4 +50,40 @@ const cards = [
 const suits = [ 'CLUBS', 'DIAMONDS', 'HEARTS', 'SPADES' ];
 const CARD_DECK = createDeck(suits, cards);
 const EIGHT_DECKS = addDecks(8, CARD_DECK);
-export default EIGHT_DECKS;
+
+export default async event => {
+
+    const graphcool = fromEvent(event);
+    const api = graphcool.api('simple/v1');
+    const deck = shaffle(EIGHT_DECKS);
+
+    try{
+        await deck.forEach(card => {
+            api.request(`
+                mutation {
+                    createCard(
+                        dignity: "${card.dignity}"
+                        value: ${card.value}
+                        altValue: ${card.altValue}
+                        suit: "${card.suit}"
+                    ) {
+                        id
+                    }
+                }`);
+        });
+
+        return {
+            data: {
+                message: 'OK',
+                status: 200,
+            }
+        };
+    } catch (error){
+        return {
+            data: {
+                message: error.message,
+                status: 500,
+            }
+        };
+    };
+}
