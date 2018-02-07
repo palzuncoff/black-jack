@@ -3,10 +3,11 @@ import './App.css';
 import Table from './components/Table';
 
 class App extends Component {
-
     render() {
         return (
-            <Table />
+          <div>
+              <Table />
+          </div>
         );
     }
 };
