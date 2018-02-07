@@ -34,6 +34,18 @@ functions:
          src: ./src/facebook/loggedInUser.ts
      type: resolver
      schema: ./src/facebook/loggedInUser.graphql
+   newDeck:
+     handler:
+       code:
+         src: ./src/game/newDeck.js
+     type: resolver
+     schema: ./src/game/newDeck.graphql
+   getCard:
+     handler:
+       code:
+         src: ./src/game/getCard.js
+     type: resolver
+     schema: ./src/game/getCard.graphql
 
 
 

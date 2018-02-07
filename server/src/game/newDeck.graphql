@@ -1,0 +1,8 @@
+type newDeckPayload {
+  message: String!
+  status: Int!
+}
+
+extend type Query {
+  newDeck: newDeckPayload
+}

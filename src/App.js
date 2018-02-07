@@ -1,11 +1,10 @@
 /*global FB*/
 
 import React, { Component } from 'react';
-import { withRouter } from 'react-router'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag';
 import './App.css';
-import Table from './components/Table';
+import Game from './components/Game';
 
 const FACEBOOK_APP_ID = process.env.REACT_APP_FACEBOOK_APP_ID;
 const FACEBOOK_API_VERSION = process.env.REACT_APP_FACEBOOK_API_VERSION;
@@ -36,7 +35,9 @@ class App extends Component {
     }
 
     _handleFBLogin = () => {
-        FB.login(response => { this._facebookCallback(response) }, { scope: 'public_profile,email' })
+        FB.login(response => {
+            this._facebookCallback(response)
+        }, { scope: 'public_profile,email' })
     }
 
     _facebookCallback = async facebookResponse => {
@@ -44,7 +45,8 @@ class App extends Component {
             const facebookToken = facebookResponse.authResponse.accessToken
             const graphcoolResponse = await this.props.authenticateUserMutation({variables: { facebookToken }})
             const graphcoolToken = graphcoolResponse.data.authenticateUser.token
-            localStorage.setItem('graphcoolToken', graphcoolToken)
+            localStorage.setItem(process.env.REACT_APP_AUTH_TOKEN, graphcoolToken)
+            localStorage.setItem('userId', facebookResponse.authResponse.userID)
             window.location.reload()
         } else {
             console.warn(`User did not authorize the Facebook application.`)
@@ -58,7 +60,7 @@ class App extends Component {
     }
 
     _logout = () => {
-        localStorage.removeItem('graphcoolToken')
+        localStorage.removeItem(process.env.REACT_APP_AUTH_TOKEN)
         window.location.reload()
     }
 
@@ -85,7 +87,7 @@ class App extends Component {
             Logout
           </span>
                 </div>
-                <h1>Ok</h1>
+                <Game/>
             </div>
         )
     }
@@ -116,7 +118,7 @@ const LOGGED_IN_USER = gql`
       id
     }
   }
-`
+`;
 
 const AUTHENTICATE_FACEBOOK_USER = gql`
   mutation AuthenticateUserMutation($facebookToken: String!) {
@@ -124,9 +126,9 @@ const AUTHENTICATE_FACEBOOK_USER = gql`
       token
     }
   }
-`
+`;
 
 export default compose(
     graphql(AUTHENTICATE_FACEBOOK_USER, { name: 'authenticateUserMutation' }),
     graphql(LOGGED_IN_USER, { options: { fetchPolicy: 'network-only'}})
-) (withRouter(App))
+) (App)
