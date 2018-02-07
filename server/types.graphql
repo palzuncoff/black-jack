@@ -31,6 +31,7 @@ type Card @model {
 
 type Table @model {
     id: ID! @isUnique
+    cardId: String!
     player: String!
     dignity: String!
     value: Int!

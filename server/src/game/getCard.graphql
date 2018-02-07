@@ -1,0 +1,8 @@
+type getCardPayload {
+  message: String!
+  status: Int!
+}
+
+extend type Query {
+  getCard(player: String): getCardPayload
+}

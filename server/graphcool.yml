@@ -40,6 +40,12 @@ functions:
          src: ./src/game/newDeck.js
      type: resolver
      schema: ./src/game/newDeck.graphql
+   getCard:
+     handler:
+       code:
+         src: ./src/game/getCard.js
+     type: resolver
+     schema: ./src/game/getCard.graphql
 
 
 
