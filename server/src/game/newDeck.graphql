@@ -3,6 +3,6 @@ type newDeckPayload {
   status: Int!
 }
 
-extend type Query {
+extend type Mutation {
   newDeck: newDeckPayload
 }

@@ -55,7 +55,11 @@ class Game extends Component {
     };
 
     handleStartGame = async () => {
-        await this.props.newDeck.updateQuery();
+        try{
+            await this.props.newDeck();
+        } catch (error) {
+            console.log(`${error.message} -- fuck`);
+        }
     };
 
     render() {
@@ -108,7 +112,7 @@ const CREATE_CHAT_MUTATION = gql`
 `;
 
 const NEW_DECK = gql`
-    query NewDeck {
+    mutation NewDeck {
         newDeck {
             message
             status

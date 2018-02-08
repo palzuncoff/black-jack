@@ -3,6 +3,6 @@ type getCardPayload {
   status: Int!
 }
 
-extend type Query {
+extend type Mutation {
   getCard(player: String): getCardPayload
 }
