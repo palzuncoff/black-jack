@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="6000px"
-	 height="4000px" viewBox="0 0 6000 4000" enable-background="new 0 0 6000 4000" xml:space="preserve">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="6000px" height="4000px" viewBox="0 0 6000 4000" enable-background="new 0 0 6000 4000" xml:space="preserve">
 <g id="Bg">
-	<radialGradient id="SVGID_1_" cx="2999.5" cy="2000.5" r="2549.5098" gradientUnits="userSpaceOnUse">
+	
+		<radialGradient id="SVGID_1_" cx="2805.5" cy="2104.5" r="2549.5098" gradientTransform="matrix(1 0 0 -1 194 4105)" gradientUnits="userSpaceOnUse">
 		<stop  offset="0" style="stop-color:#3FFF8C"/>
 		<stop  offset="0.0684" style="stop-color:#36F07D"/>
 		<stop  offset="0.2454" style="stop-color:#23CF5B"/>
@@ -17,7 +18,7 @@
 </g>
 <g id="Table">
 	
-		<radialGradient id="SVGID_2_" cx="3000" cy="1224.5" r="2231.1279" gradientTransform="matrix(1 0 0 1.3422 0 0)" gradientUnits="userSpaceOnUse">
+		<radialGradient id="SVGID_2_" cx="2806" cy="2471.4045" r="2231.1338" gradientTransform="matrix(1 0 0 -1.3422 194 4960.6714)" gradientUnits="userSpaceOnUse">
 		<stop  offset="0" style="stop-color:#007F21"/>
 		<stop  offset="0.1264" style="stop-color:#008420"/>
 		<stop  offset="0.549" style="stop-color:#008F1F"/>
@@ -39,7 +40,7 @@
 </g>
 <g id="card_border_1_">
 	<path fill="none" stroke="#FFFFFF" stroke-width="30" stroke-miterlimit="10" d="M3182,3149.651
-		c0,6.268-5.081,11.349-11.349,11.349h-340.301c-6.268,0-11.349-5.081-11.349-11.349v-516.301c0-6.268,5.081-11.349,11.349-11.349
+		c0,6.268-5.081,11.349-11.349,11.349H2830.35c-6.268,0-11.349-5.081-11.349-11.349V2633.35c0-6.268,5.081-11.349,11.349-11.349
 		h340.301c6.268,0,11.349,5.081,11.349,11.349V3149.651z"/>
 </g>
 <g id="card_border">
@@ -156,7 +157,7 @@
 			<path fill="#FFFFFF" d="M2782.633,2241.284c5.978,4.063,15.473,8.595,25.729,9.944c11.046,1.452,17.417-2.182,18.213-8.733
 				c0.76-6.254-3.929-10.667-15.862-16.374c-12.826-6.133-26.749-17.541-24.34-33.563c3.05-20.287,24.881-27.215,42.739-24.864
 				c11.333,1.493,19.551,4.763,25.289,8.107c-2.855,7.111-4.294,10.664-7.195,17.763c-3.898-2.401-10.863-6.064-20.885-7.324
-				c-10.022-1.26-15.476,2.521-16.177,7.724c-0.862,6.392,4.661,10.387,17.342,16.606c12.76,6.258,25.54,17.364,23.766,33.085
+				s-15.476,2.521-16.177,7.724c-0.862,6.392,4.661,10.387,17.342,16.606c12.76,6.258,25.54,17.364,23.766,33.085
 				c-2.556,22.654-28.299,29.265-46.768,25.973c-10.288-1.834-20.335-4.402-29.52-10.377
 				C2778.052,2252.071,2779.586,2248.477,2782.633,2241.284z"/>
 			<path fill="#FFFFFF" d="M2897.266,2176.479c-1.618,19.332-3.236,38.663-4.854,57.994c-1.466,12.111,3.172,26.608,17.149,27.668
@@ -404,15 +405,19 @@
 	</g>
 </g>
 <g id="Pays_3_to_2">
-	<text transform="matrix(1 0 0 1 2624.8052 1129)"><tspan x="0" y="0" fill="#FF9700" font-family="'MyriadPro-Regular'" font-size="150">PAYS </tspan><tspan x="358.495" y="0" fill="#FF9700" font-family="'MyriadPro-Bold'" font-size="200">3</tspan><tspan x="469.494" y="0" fill="#FF9700" font-family="'MyriadPro-Regular'" font-size="150"> to </tspan><tspan x="665.09" y="0" fill="#FF9700" font-family="'MyriadPro-Bold'" font-size="200">2</tspan></text>
+	<text transform="matrix(1 0 0 1 2624.8052 1129)" fill="#FF9700" font-family="'MyriadPro-Regular'" font-size="150">PAYS </text>
+	<text transform="matrix(1 0 0 1 2983.3003 1129)" fill="#FF9700" font-family="'MyriadPro-Bold'" font-size="200">3</text>
+	<text transform="matrix(1 0 0 1 3094.2991 1129)" fill="#FF9700" font-family="'MyriadPro-Regular'" font-size="150"> to </text>
+	<text transform="matrix(1 0 0 1 3289.8953 1129)" fill="#FF9700" font-family="'MyriadPro-Bold'" font-size="200">2</text>
 </g>
 <g id="Black_Jack">
-	<text transform="matrix(1 0 0 1 2225 814.8776)" fill="#FFFFFF" font-family="'MyriadPro-Bold'" font-size="300">BLACK JACK</text>
+	<text transform="matrix(1 0 0 1 2225 814.8777)" fill="#FFFFFF" font-family="'MyriadPro-Bold'" font-size="300">BLACK JACK</text>
 </g>
 <g id="Cards">
 	<g>
 		<g>
-			<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="1218.145" y1="1097.1716" x2="1725.0566" y2="1097.1716">
+			
+				<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="1024.1439" y1="3007.8284" x2="1531.0559" y2="3007.8284" gradientTransform="matrix(1 0 0 -1 194 4105)">
 				<stop  offset="0" style="stop-color:#D3CFB2"/>
 				<stop  offset="0.0035" style="stop-color:#D3D0B3"/>
 				<stop  offset="0.1229" style="stop-color:#E2DFCB"/>
@@ -425,7 +430,7 @@
 				<stop  offset="0.9946" style="stop-color:#D3D0B3"/>
 				<stop  offset="1" style="stop-color:#D3CFB2"/>
 			</linearGradient>
-			<path fill="url(#SVGID_3_)" d="M1705.541,1214.501l-310.447,103.514c-8.922,2.974-18.808-1.4-21.952-9.701l-151.062-380.613
+			<path fill="url(#SVGID_3_)" d="M1705.541,1214.501l-310.447,103.514c-8.922,2.974-18.808-1.4-21.952-9.701L1222.08,927.701
 				c-2.708-7.146-3.936-9.242-3.936-17.458v-34.848c0.01,1.331,0.263,2.672,0.783,3.983l156.151,393.443
 				c3.292,8.296,13.567,12.401,22.807,9.102l318.27-113.66c4.197-1.499,7.281-4.388,8.901-7.855
 				c-2.541,11.666-8.996,37.651-11.105,45.518C1712.734,1210.467,1711.248,1212.598,1705.541,1214.501z"/>
@@ -468,10 +473,10 @@
 					c4.197-1.499,7.281-4.388,8.901-7.855"/>
 			</g>
 			<g>
-				<path fill="#F2F0DD" d="M1526.067,771.486l-296.538,90.493c-8.583,2.62-13.363,10.441-10.601,17.398l156.151,393.443
+				<path fill="#FFFFFF" d="M1526.067,771.486l-296.538,90.493c-8.583,2.62-13.363,10.441-10.601,17.398l156.151,393.443
 					c3.292,8.296,13.567,12.401,22.807,9.102l318.27-113.66c8.587-3.067,12.517-11.946,8.767-19.713l-178.525-369.604
 					C1543.23,772.386,1534.091,769.037,1526.067,771.486z"/>
-				<path fill="#C18E10" d="M1403.683,881.878c-2.088,0.446-4.345-1.029-4.239-2.932c-1.128,0.459-1.385,0.897-2.596,0.812
+				<path fill="#191919" d="M1403.683,881.878c-2.088,0.446-4.345-1.029-4.239-2.932c-1.128,0.459-1.385,0.897-2.596,0.812
 					c1.411,2.318-0.294,3.468-1.165,4.932C1398.205,883.698,1401.896,883.146,1403.683,881.878z M1384.942,888.055
 					c2.421-0.96,6.012-1.482,7.698-2.717c-2.909,0.407-4.471-1.578-6.215-3.233C1383.593,883.205,1384.293,885.639,1384.942,888.055
 					z M1402.807,878.198c1.27,0.85-0.274,1.38,0.405,2.609c1.89,0.651,3.573-0.896,4.746-1.788c1.322,0.811,4.558-0.172,4.418-1.688

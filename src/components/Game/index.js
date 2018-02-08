@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import './index.css';
+import Board from "../Board";
 import Chatbox from '../Chatbox';
 
 class Game extends Component {
@@ -62,6 +63,7 @@ class Game extends Component {
         const allChats = this.props.allChatsQuery.allChats || [];
         return (
             <div className="">
+                <Board />
                 <div className="container">
                     <h2>Chats</h2>
                     {allChats.map(message => (
