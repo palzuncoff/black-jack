@@ -103,15 +103,15 @@ export default async event => {
         if (clear.data.status === 200){
             await deck.forEach(card => {
                 api.request(`
-                mutation {
-                    createCard(
-                        dignity: "${card.dignity}"
-                        value: ${card.value}
-                        altValue: ${card.altValue}
-                        suit: "${card.suit}"
-                    ) {
-                        id
-                    }
+                    mutation {
+                        createCard(
+                            dignity: "${card.dignity}"
+                            value: ${card.value}
+                            altValue: ${card.altValue}
+                            suit: "${card.suit}"
+                        ) {
+                            id
+                        }
                 }`);
             });
 
