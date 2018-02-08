@@ -7,7 +7,8 @@ import Chatbox from '../Chatbox';
 class Game extends Component {
     state = {
         from: 'anonymous',
-        content: ''
+        content: '',
+        error: false,
     };
 
     componentDidMount() {
@@ -58,7 +59,15 @@ class Game extends Component {
         try{
             await this.props.newDeck();
         } catch (error) {
-            console.log(`${error.message} -- fuck`);
+            return this.setState({ error: true });
+        }
+    };
+
+    handleGetCard = async player => {
+        try{
+            await this.props.getCard({variables: { player }})
+        } catch (error) {
+            return this.setState({error: true});
         }
     };
 
@@ -83,6 +92,9 @@ class Game extends Component {
                     <button
                         onClick={this.handleStartGame}
                     >START GAME</button>
+                    <button
+                        onClick={() => this.handleGetCard(`${localStorage.getItem('userId')}`)}
+                    >Get Card</button>
                 </div>
             </div>
         );
@@ -120,8 +132,18 @@ const NEW_DECK = gql`
     }
 `;
 
+const GET_CARD = gql`
+    mutation GetCard($player: String!) {
+        getCard(player: $player) {
+            message
+            status
+        }
+    }
+`;
+
 export default compose(
     graphql(ALL_CHATS_QUERY, { name: 'allChatsQuery' }),
     graphql(CREATE_CHAT_MUTATION, { name: 'createChatMutation' }),
-    graphql(NEW_DECK, { name: 'newDeck' })
+    graphql(NEW_DECK, { name: 'newDeck' }),
+    graphql(GET_CARD, { name: 'getCard' }),
 )(Game);
