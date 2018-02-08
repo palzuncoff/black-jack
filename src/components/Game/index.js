@@ -66,7 +66,15 @@ class Game extends Component {
 
     handleGetCard = async player => {
         try{
-            await this.props.getCard({variables: { player }})
+            await this.props.getCard({variables: { player }});
+        } catch (error) {
+            return this.setState({error: true});
+        }
+    };
+
+    handleClearTable = async player => {
+        try{
+            await this.props.clearTable({variables: { player }});
         } catch (error) {
             return this.setState({error: true});
         }
@@ -97,6 +105,9 @@ class Game extends Component {
                     <button
                         onClick={() => this.handleGetCard(`${localStorage.getItem('userId')}`)}
                     >Get Card</button>
+                    <button
+                        onClick={() => this.handleClearTable(`${localStorage.getItem('userId')}`)}
+                    >Clear Table</button>
                 </div>
             </div>
         );
@@ -143,9 +154,19 @@ const GET_CARD = gql`
     }
 `;
 
+const CLEAR_TABLE = gql`
+    mutation ClearTable($player: String!) {
+        clearTable(player: $player) {
+            message
+            status
+        }
+    }
+`;
+
 export default compose(
     graphql(ALL_CHATS_QUERY, { name: 'allChatsQuery' }),
     graphql(CREATE_CHAT_MUTATION, { name: 'createChatMutation' }),
     graphql(NEW_DECK, { name: 'newDeck' }),
     graphql(GET_CARD, { name: 'getCard' }),
+    graphql(CLEAR_TABLE, { name: 'clearTable' }),
 )(Game);
