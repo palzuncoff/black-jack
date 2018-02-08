@@ -73,5 +73,5 @@ export default async event => {
                 status: 500,
             }
         };
-    }
+    };
 }

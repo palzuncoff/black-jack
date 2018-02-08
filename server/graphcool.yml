@@ -46,6 +46,12 @@ functions:
          src: ./src/game/getCard.js
      type: resolver
      schema: ./src/game/getCard.graphql
+   clearTable:
+     handler:
+       code:
+         src: ./src/game/clearTable.js
+     type: resolver
+     schema: ./src/game/clearTable.graphql
 
 
 
