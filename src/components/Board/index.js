@@ -1,81 +1,116 @@
 import React, { Component } from 'react';
-import './index.css';
-import Back from '../../img/SVG-cards/card-back.svg';
-import Card from '../Card';
+import Dealer from "../Dealer";
+import Player from '../Player';
+import PropTypes from 'prop-types';
 
 class Board extends Component {
+    state = {
+        dealer: {
+            className: 'dealer',
+            cards: [
+                {
+                    id: 1,
+                    suit: "Hearts",
+                    nominal: "ace"
+                },
+                {
+                    id: 2,
+                    suit: "Back",
+                    nominal: "back"
+                }
+            ],
+        },
+        player1: {
+            className: 'player-1',
+            cards: [
+                {
+                    id: 1,
+                    suit: "Hearts",
+                    nominal: "queen"
+                },
+                {
+                    id: 2,
+                    suit: "Spades",
+                    nominal: "queen"
+                },
+                {
+                    id: 3,
+                    suit: "Clubs",
+                    nominal: "queen"
+                },
+                {
+                    id: 4,
+                    suit: "Diamonds",
+                    nominal: "queen"
+                },
+            ],
+        },
+        player2: {
+            className: 'player-2',
+            cards: [
+                {
+                    id: 1,
+                    suit: "Hearts",
+                    nominal: "king"
+                },
+                {
+                    id: 2,
+                    suit: "Spades",
+                    nominal: "king"
+                },
+                {
+                    id: 3,
+                    suit: "Clubs",
+                    nominal: "king"
+                },
+                {
+                    id: 4,
+                    suit: "Diamonds",
+                    nominal: "king"
+                },
+            ],
+        },
+        player3: {
+            className: 'player-3',
+            cards: [
+                {
+                    id: 1,
+                    suit: "Hearts",
+                    nominal: "jack"
+                },
+                {
+                    id: 2,
+                    suit: "Spades",
+                    nominal: "jack"
+                },
+                {
+                    id: 3,
+                    suit: "Clubs",
+                    nominal: "jack"
+                },
+                {
+                    id: 4,
+                    suit: "Diamonds",
+                    nominal: "jack"
+                },
+            ],
+        },
+    };
     render() {
         return (
           <div>
-
-              {/* Dealer */}
-              <section className="dealer">
-                  <ul className="dealer__list">
-                      <li className="dealer__li">
-                          <Card nominal='five' suit='Hearts' />
-                      </li>
-                      <li className="dealer__li">
-                          <img src={Back} alt="card" className="dealer__card" />
-                      </li>
-                  </ul>
-              </section>
-
-              {/* Player 1 */}
-              <section className="player-1">
-                  <ul className="player__list">
-                      <li className="player__li">
-                          <Card nominal='jack' suit='Hearts' />
-                      </li>
-                      <li className="player__li">
-                          <Card nominal='jack' suit='Spades' />
-                      </li>
-                      <li className="player__li">
-                          <Card nominal='jack' suit='Clubs' />
-                      </li>
-                      <li className="player__li">
-                          <Card nominal='jack' suit='Diamonds' />
-                      </li>
-                  </ul>
-              </section>
-
-              {/* Player 2 */}
-              <section className="player-2">
-                  <ul className="player__list">
-                      <li className="player__li">
-                          <Card nominal='jack' suit='Hearts' />
-                      </li>
-                      <li className="player__li">
-                          <Card nominal='jack' suit='Spades' />
-                      </li>
-                      <li className="player__li">
-                          <Card nominal='jack' suit='Clubs' />
-                      </li>
-                      <li className="player__li">
-                          <Card nominal='jack' suit='Diamonds' />
-                      </li>
-                  </ul>
-              </section>
-
-              {/* Player 3 */}
-              <section className="player-3">
-                  <ul className="dealer__list">
-                      <li className="player__li">
-                          <Card nominal='jack' suit='Hearts' />
-                      </li>
-                      <li className="player__li">
-                          <Card nominal='jack' suit='Spades' />
-                      </li>
-                      <li className="player__li">
-                          <Card nominal='jack' suit='Clubs' />
-                      </li>
-                      <li className="player__li">
-                          <Card nominal='jack' suit='Diamonds' />
-                      </li>
-                  </ul>
-              </section>
+              <Dealer dealer={this.state.dealer} />
+              <Player player={this.state.player1} />
+              <Player player={this.state.player2} />
+              <Player player={this.state.player3} />
           </div>
         );
     }
 }
+
+Board.propTypes = {
+    dealer: PropTypes.array,
+    player: PropTypes.array
+};
 
 export default Board;

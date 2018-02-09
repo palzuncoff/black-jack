@@ -1,0 +1,24 @@
+/* Dealer
+/* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
+
+.dealer {
+    position: absolute;
+    top: 220px;
+    width: 100%;
+    text-align: center;
+}
+
+.dealer__list {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.dealer__li {
+    padding: 0 5px;
+}
+
+.dealer__card {
+    padding: 0 5px;
+}
