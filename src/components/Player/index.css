@@ -1,29 +1,4 @@
 
-img {
-    width: 100px;
-}
-
-/* Dealer
-/* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
-
-.dealer {
-    position: absolute;
-    top: 220px;
-    width: 100%;
-    text-align: center;
-}
-
-.dealer__list {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    list-style: none;
-}
-
-.dealer__card {
-    padding: 0 5px;
-}
-
 /* Player cards
 /* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
 
@@ -157,7 +132,6 @@ img {
     top: 220px;
 }
 
-
 /* Player 2
 /* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
 
@@ -212,7 +186,6 @@ img {
 .player-2 .player__li:nth-child(11) {
     top: 220px;
 }
-
 
 /* Player 3
 /* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
@@ -269,68 +242,34 @@ img {
     top: 220px;
 }
 
-
 /* Responsive media queries
 /* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
 
 /* Large devices (large desktops, 1700px and up) */
 @media (max-width: 1700px) {
 
-    /* Dealer */
-    .dealer {
-        top: 275px;
-    }
-
-    /* Player 1 */
     .player-1 {
-        position: absolute;
-        left: 50%;
-        margin-left: -475px;
-        transform: rotate(20deg);
-        bottom: 400px;
+        margin-left: -450px;
+        bottom: 350px;
     }
-
-    /* Player 2 */
     .player-2 {
-        position: absolute;
-        left: 50%;
-        margin-left: -130px;
-        transform: rotate(-20deg);
-        bottom: 300px;
+        bottom: 250px;
     }
-
-    /* Player 3 */
     .player-3 {
-        position: absolute;
-        left: 50%;
-        margin-left: 150px;
+        margin-left: 100px;
         transform: rotate(-60deg);
-        bottom: 450px;
+        bottom: 400px;
     }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (max-width: 1200px) {
 
-    img {
-        width: 50px;
-    }
-
-    /* Dealer */
-    .dealer {
-        top: 300px;
-    }
-
-    /* Player 1 */
     .player-1 {
-        position: absolute;
-        left: 50%;
         margin-left: -350px;
         transform: rotate(10deg);
         bottom: 450px;
     }
-
-    /* Player 2 */
     .player-2 {
         position: absolute;
         left: 50%;
@@ -338,11 +277,7 @@ img {
         transform: rotate(-30deg);
         bottom: 350px;
     }
-
-    /* Player 3 */
     .player-3 {
-        position: absolute;
-        left: 50%;
         margin-left: 200px;
         transform: rotate(-75deg);
         bottom: 500px;
@@ -354,4 +289,3 @@ img {
 
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 768px) {}
-

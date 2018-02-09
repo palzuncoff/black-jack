@@ -375,9 +375,11 @@ export const cards = [
     }
 ];
 
-export default function Card(props) {
+function Card({ nominal, suit }) {
 
-    const { card } = cards.find(card => card.nominal === props.nominal && card.suit === props.suit);
+    const { card } = cards.find(card => card.nominal === nominal && card.suit === suit);
 
     return <img src={card} alt="card" />
 }
+
+export default Card;
