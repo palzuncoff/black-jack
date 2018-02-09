@@ -4,11 +4,104 @@ import gql from 'graphql-tag';
 import './index.css';
 import Board from "../Board";
 import Chatbox from '../Chatbox';
+import PropTypes from 'prop-types';
 
 class Game extends Component {
     state = {
         from: 'anonymous',
-        content: ''
+        content: '',
+        board: {
+            dealer: {
+                className: 'dealer',
+                cards: [
+                    {
+                        id: 1,
+                        suit: "Hearts",
+                        nominal: "ace"
+                    },
+                    {
+                        id: 2,
+                        suit: "Back",
+                        nominal: "back"
+                    }
+                ],
+            },
+            player1: {
+                className: 'player-1',
+                cards: [
+                    {
+                        id: 1,
+                        suit: "Hearts",
+                        nominal: "queen"
+                    },
+                    {
+                        id: 2,
+                        suit: "Spades",
+                        nominal: "queen"
+                    },
+                    {
+                        id: 3,
+                        suit: "Clubs",
+                        nominal: "queen"
+                    },
+                    {
+                        id: 4,
+                        suit: "Diamonds",
+                        nominal: "queen"
+                    },
+                ],
+            },
+            player2: {
+                className: 'player-2',
+                cards: [
+                    {
+                        id: 1,
+                        suit: "Hearts",
+                        nominal: "king"
+                    },
+                    {
+                        id: 2,
+                        suit: "Spades",
+                        nominal: "king"
+                    },
+                    {
+                        id: 3,
+                        suit: "Clubs",
+                        nominal: "king"
+                    },
+                    {
+                        id: 4,
+                        suit: "Diamonds",
+                        nominal: "king"
+                    },
+                ],
+            },
+            player3: {
+                className: 'player-3',
+                cards: [
+                    {
+                        id: 1,
+                        suit: "Hearts",
+                        nominal: "jack"
+                    },
+                    {
+                        id: 2,
+                        suit: "Spades",
+                        nominal: "jack"
+                    },
+                    {
+                        id: 3,
+                        suit: "Clubs",
+                        nominal: "jack"
+                    },
+                    {
+                        id: 4,
+                        suit: "Diamonds",
+                        nominal: "jack"
+                    },
+                ],
+            },
+        }
     };
 
     componentDidMount() {
@@ -62,8 +155,8 @@ class Game extends Component {
     render() {
         const allChats = this.props.allChatsQuery.allChats || [];
         return (
-            <div className="">
-                <Board />
+            <div>
+                <Board board={this.state.board} />
                 <div className="container">
                     <h2>Chats</h2>
                     {allChats.map(message => (
@@ -117,6 +210,10 @@ const NEW_DECK = gql`
         }
     }
 `;
+
+Game.propTypes = {
+    board: PropTypes.array
+};
 
 export default compose(
     graphql(ALL_CHATS_QUERY, { name: 'allChatsQuery' }),
