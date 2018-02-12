@@ -13,7 +13,7 @@ class Game extends Component {
     };
 
     componentDidMount() {
-        const from = localStorage.getItem('userId');
+        const from = localStorage.getItem('facebookUserId');
         from && this.setState({ from });
         this._subscribeToNewChats();
     }
@@ -103,10 +103,10 @@ class Game extends Component {
                         onClick={this.handleStartGame}
                     >START GAME</button>
                     <button
-                        onClick={() => this.handleGetCard(`${localStorage.getItem('userId')}`)}
+                        onClick={() => this.handleGetCard(`${localStorage.getItem('facebookUserId')}`)}
                     >Get Card</button>
                     <button
-                        onClick={() => this.handleClearTable(`${localStorage.getItem('userId')}`)}
+                        onClick={() => this.handleClearTable(`${localStorage.getItem('facebookUserId')}`)}
                     >Clear Table</button>
                 </div>
             </div>
@@ -163,10 +163,20 @@ const CLEAR_TABLE = gql`
     }
 `;
 
+const GET_COUNT = gql`
+    mutation GetCount($player: String!) {
+        getCount(player: $player) {
+            id
+            cash
+        }
+    }
+`;
+
 export default compose(
     graphql(ALL_CHATS_QUERY, { name: 'allChatsQuery' }),
     graphql(CREATE_CHAT_MUTATION, { name: 'createChatMutation' }),
     graphql(NEW_DECK, { name: 'newDeck' }),
     graphql(GET_CARD, { name: 'getCard' }),
     graphql(CLEAR_TABLE, { name: 'clearTable' }),
+    graphql(GET_COUNT, { name: 'getCount' }),
 )(Game);

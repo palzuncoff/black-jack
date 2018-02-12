@@ -52,6 +52,12 @@ functions:
          src: ./src/game/clearTable.js
      type: resolver
      schema: ./src/game/clearTable.graphql
+   getCount:
+     handler:
+       code:
+         src: ./src/game/getCount.js
+     type: resolver
+     schema: ./src/game/getCount.graphql
 
 
 
