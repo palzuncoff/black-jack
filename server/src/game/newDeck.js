@@ -51,26 +51,29 @@ const suits = [ 'CLUBS', 'DIAMONDS', 'HEARTS', 'SPADES' ];
 const CARD_DECK = createDeck(suits, cards);
 const EIGHT_DECKS = addDecks(8, CARD_DECK);
 
-export default async event => {
-
-    const graphcool = fromEvent(event);
-    const api = graphcool.api('simple/v1');
-    const deck = shaffle(EIGHT_DECKS);
-
+const clearDeck = async api => {
     try{
-        await deck.forEach(card => {
-            api.request(`
-                mutation {
-                    createCard(
-                        dignity: "${card.dignity}"
-                        value: ${card.value}
-                        altValue: ${card.altValue}
-                        suit: "${card.suit}"
-                    ) {
-                        id
-                    }
-                }`);
-        });
+        const cards = await api.request(`
+            query {
+                allCards(first: 416) {
+                    id
+                }
+            }`
+        );
+
+        const Cards = [ ...cards.allCards ];
+
+        if (Cards.length > 0) {
+            for (let i = 0; i < Cards.length; i++) {
+                api.request(`
+                    mutation {
+                        deleteCard(id: "${Cards[i].id}") {
+                            id
+                        }
+                    }`
+                );
+            }
+        }
 
         return {
             data: {
@@ -78,6 +81,47 @@ export default async event => {
                 status: 200,
             }
         };
+    } catch (error) {
+        return {
+            data: {
+                message: error.message,
+                status: 500,
+            }
+        };
+    }
+};
+
+export default async event => {
+
+    const graphcool = fromEvent(event);
+    const api = graphcool.api('simple/v1');
+    const deck = shaffle(EIGHT_DECKS);
+
+    try{
+        const clear = await clearDeck(api);
+
+        if (clear.data.status === 200){
+            await deck.forEach(card => {
+                api.request(`
+                    mutation {
+                        createCard(
+                            dignity: "${card.dignity}"
+                            value: ${card.value}
+                            altValue: ${card.altValue}
+                            suit: "${card.suit}"
+                        ) {
+                            id
+                        }
+                }`);
+            });
+
+            return {
+                data: {
+                    message: 'OK',
+                    status: 200,
+                }
+            };
+        }
     } catch (error){
         return {
             data: {

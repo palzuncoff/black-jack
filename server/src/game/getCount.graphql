@@ -1,0 +1,10 @@
+type getCountPayload {
+  id: String
+  cash: Float
+  message: String!
+  status: Int!
+}
+
+extend type Mutation {
+  getCount(player: String): getCountPayload
+}

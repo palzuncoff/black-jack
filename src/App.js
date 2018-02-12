@@ -46,7 +46,7 @@ class App extends Component {
             const graphcoolResponse = await this.props.authenticateUserMutation({variables: { facebookToken }})
             const graphcoolToken = graphcoolResponse.data.authenticateUser.token
             localStorage.setItem(process.env.REACT_APP_AUTH_TOKEN, graphcoolToken)
-            localStorage.setItem('userId', facebookResponse.authResponse.userID)
+            localStorage.setItem('facebookUserId', facebookResponse.authResponse.userID)
             window.location.reload()
         } else {
             console.warn(`User did not authorize the Facebook application.`)
@@ -74,6 +74,7 @@ class App extends Component {
     }
 
     renderLoggedIn() {
+        localStorage.setItem('userId', `${this.props.data.loggedInUser.id}`);
         return (
             <div>
         <span>

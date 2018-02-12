@@ -1,0 +1,8 @@
+type clearTablePayload {
+  message: String!
+  status: Int!
+}
+
+extend type Mutation {
+  clearTable(player: String): clearTablePayload
+}

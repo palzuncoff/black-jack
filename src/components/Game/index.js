@@ -8,11 +8,12 @@ import Chatbox from '../Chatbox';
 class Game extends Component {
     state = {
         from: 'anonymous',
-        content: ''
+        content: '',
+        error: false,
     };
 
     componentDidMount() {
-        const from = localStorage.getItem('userId');
+        const from = localStorage.getItem('facebookUserId');
         from && this.setState({ from });
         this._subscribeToNewChats();
     }
@@ -56,7 +57,27 @@ class Game extends Component {
     };
 
     handleStartGame = async () => {
-        await this.props.newDeck.updateQuery();
+        try{
+            await this.props.newDeck();
+        } catch (error) {
+            return this.setState({ error: true });
+        }
+    };
+
+    handleGetCard = async player => {
+        try{
+            await this.props.getCard({variables: { player }});
+        } catch (error) {
+            return this.setState({error: true});
+        }
+    };
+
+    handleClearTable = async player => {
+        try{
+            await this.props.clearTable({variables: { player }});
+        } catch (error) {
+            return this.setState({error: true});
+        }
     };
 
     render() {
@@ -81,6 +102,12 @@ class Game extends Component {
                     <button
                         onClick={this.handleStartGame}
                     >START GAME</button>
+                    <button
+                        onClick={() => this.handleGetCard(`${localStorage.getItem('facebookUserId')}`)}
+                    >Get Card</button>
+                    <button
+                        onClick={() => this.handleClearTable(`${localStorage.getItem('facebookUserId')}`)}
+                    >Clear Table</button>
                 </div>
             </div>
         );
@@ -110,7 +137,7 @@ const CREATE_CHAT_MUTATION = gql`
 `;
 
 const NEW_DECK = gql`
-    query NewDeck {
+    mutation NewDeck {
         newDeck {
             message
             status
@@ -118,8 +145,38 @@ const NEW_DECK = gql`
     }
 `;
 
+const GET_CARD = gql`
+    mutation GetCard($player: String!) {
+        getCard(player: $player) {
+            message
+            status
+        }
+    }
+`;
+
+const CLEAR_TABLE = gql`
+    mutation ClearTable($player: String!) {
+        clearTable(player: $player) {
+            message
+            status
+        }
+    }
+`;
+
+const GET_COUNT = gql`
+    mutation GetCount($player: String!) {
+        getCount(player: $player) {
+            id
+            cash
+        }
+    }
+`;
+
 export default compose(
     graphql(ALL_CHATS_QUERY, { name: 'allChatsQuery' }),
     graphql(CREATE_CHAT_MUTATION, { name: 'createChatMutation' }),
-    graphql(NEW_DECK, { name: 'newDeck' })
+    graphql(NEW_DECK, { name: 'newDeck' }),
+    graphql(GET_CARD, { name: 'getCard' }),
+    graphql(CLEAR_TABLE, { name: 'clearTable' }),
+    graphql(GET_COUNT, { name: 'getCount' }),
 )(Game);
